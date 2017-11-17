@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>商城系统登录</title>
+    <script src="__STYLE__/js/jquery.min.js"></script>    
+    <script src="__STYLE__/js/bootstrap.min.js"></script>  
+    <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__STYLE__/css/admin.css" rel="stylesheet">
+    <link href="__STYLE__/css/style.css" rel="stylesheet">
+</head>
+<body class="background8">
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="login-box-body" style="margin-top:300px;">
+
+    <form id="loginForm" method="post" action="__URL__/login_process" autocomplete="off">
+      <div class="form-group">
+        <input type="text" id="username" class="form-control input-lg" name="usernameA"  placeholder="用户名" required>
+      </div>
+      <div class="form-group">
+        <input type="password" id="password" class="form-control input-lg" name="passwordA" placeholder="密码" required>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-6 no-padding form-group">
+							<input name="verify" type="text" placeholder="验证码" class="form-control input-lg" required>
+				  </div>
+					<div class="col-xs-6 no-padding text-right" id="captcha-container">
+									<img height="50px" alt="验证码" src="{:U('Admin/Form/verify_c',array())}" title="点击刷新">
+				  </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" name="submit" class="btn btn-primary btn-block btn-flat btn-lg btn-warning">登录</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+<script>
+	var captcha_img = $('#captcha-container').find('img')  
+	var verifyimg = captcha_img.attr("src");  
+	captcha_img.attr('title', '点击刷新');  
+	captcha_img.click(function(){  
+			if( verifyimg.indexOf('?')>0){  
+					$(this).attr("src", verifyimg+'&random='+Math.random());  
+			}else{  
+					$(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());  
+			}  
+	}); 
+</script>
+
+</body>
+</html>

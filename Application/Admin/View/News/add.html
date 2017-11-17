@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>公告列表:添加</title>
+   <include file="./Application/Admin/Common/nav.html" />
+          <p class="pull-right" style="margin-top: 20px;"><a class="btn btn-inverse" href="__ROOT__/index.php/admin/News">返回</a></p><!-- primary -->
+          <h2 class="sub-header">公告列表:添加公告</h2>
+          <form class="form-horizontal" action="__ROOT__/index.php/admin/News/add_process" method="post" autocomplete="off">
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="title">公告标题</label>  
+            <div class="col-md-4">
+            <input id="title" name="title" type="text" placeholder="" class="form-control input-md" required />
+              
+            </div>
+          </div>
+
+          <!-- 文本域 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="content">内容</label>
+            <div class="col-md-4">                     
+              <textarea class="form-control" id="content" name="content" rows="10" placeholder="在此输入内容" required></textarea>
+            </div>
+          </div>
+
+          <!-- 双按钮 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="">操作</label>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-inverse">提交</button>
+     <!--          <button type="reset" class="btn btn-default">清空</button> -->
+            </div>
+          </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>商品管理:修改</title>
+   <include file="./Application/Admin/Common/nav.html" />
+          <p class="pull-right" style="margin-top: 20px;"><a class="btn btn-inverse" href="__ROOT__/index.php/admin/jiadian">返回</a></p>
+          <h2 class="sub-header">商品管理:修改商品<small>{$list.name}</small></h2>
+          <form class="form-horizontal" action="__ROOT__/index.php/admin/jiadian/change_process" method="post" enctype="multipart/form-data" autocomplete="off">
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">商品名</label>  
+            <div class="col-md-4">
+            <input id="id" name="id" type="hidden"  value="{$list.id}" class="form-control input-md" />
+
+            <input id="name" name="name" type="text"  value="{$list.name}" class="form-control input-md" />
+              
+            </div>
+          </div>
+          <!-- 文本域-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="description">描述</label>  
+            <div class="col-md-4">                     
+              <textarea class="form-control" id="description" name="description" rows="10" placeholder="在此输入内容" required>{$list.description}</textarea>
+            </div>
+          </div>
+
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="price">价格</label>  
+            <div class="col-md-4">
+            <div class="input-group">
+      <span class="input-group-addon">￥</span>
+            <input id="price" name="price" type="text" value="{$list.price}" class="form-control input-md" />
+            </div>
+              
+            </div>
+          </div>
+
+          <!-- 文件按钮 --> 
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="img">图片</label>
+            <div class="col-md-4">
+              <img class="img-responsive img-rounded center-block" width="800px" src="__STYLE__/{$list.img}"/>
+              <span class="help-block">位置：__STYLE__/{$list.img}</span>
+              <input id="img" name="img" class="input-file" type="file" />
+            </div>
+          </div>
+
+          <!-- 双按钮 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label">操作</label>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-inverse">提交</button>
+          <!--     <button type="reset" class="btn btn-default">还原</button> -->
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

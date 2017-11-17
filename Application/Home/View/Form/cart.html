@@ -1,0 +1,108 @@
+<html>
+
+<head>
+	<title>购物车</title>
+	<script src="__STYLE__/js/jquery.min.js"></script>
+	<script src="__STYLE__/js/bootstrap.min.js"></script>
+	<link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+	<link href="__STYLE__/css/animate.min.css" rel="stylesheet">
+	<link href="__STYLE__/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<include file="Public:header" />
+
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column margin4" style="min-height:800px;">
+				<form action="__ROOT__/index.php/home/form/cart_orderlist_all" method="get" id="order">
+
+				<div class="page-header">
+					<h1>
+						购物车
+					</h1>
+				</div>
+				<table class="table" style="font-size:14px;">
+					<thead>
+						<tr>
+							<th><input class="all" type="checkbox"/></th>
+							<th>
+								图片
+							</th>
+							<th>
+								名称
+							</th>
+							<th>
+								单价
+							</th>
+							<th>
+								份数
+							</th>
+							<th>
+								总价
+							</th>
+							<th>
+								操作
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<volist name="list" id="cartitem" key="k" empty="$empty">
+							<!--volist 说明：name-传过来的结果集标识 result id-二级索引 key：索引名；未定义时变量为$i empty-result 结果集为空时的内容，可在Controller 中进行设置 -->
+							<tr class='success'>
+								<td>
+									<input name='id[]' type='checkbox' value='{$cartitem.id}' class="noborder">
+								</td>
+								<td>
+								    <img alt="" src="__STYLE__/{$cartitem.image}" style="height:60px;width:auto;" />
+								</td>
+								<td>
+									{$cartitem.name}
+								</td>
+								<td>
+									{$cartitem.price}
+								</td>
+								<td>
+									{$cartitem.number}
+								</td>
+								<td>
+									{$cartitem.zongjia}
+								</td>
+								<td>
+									<a href="__ROOT__/index.php/home/form/cart_delete?id={$cartitem.id}" style="color:blue;">删除</a>
+								</td>
+							</tr>
+						</volist>
+					</tbody>
+				</table>
+
+				</form>
+				<div class="pages">
+					{$page}
+				</div>
+				<button type="button" class="btn  btn-warning" id="discard" style="float:right;">购买</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+	  $('.all').click(function() {
+	    if($(this).is(':checked')) {
+	      $(':checkbox').attr('checked', 'checked');
+	    } else {
+	      $(':checkbox').removeAttr('checked');
+	    }
+	  });
+	  $('#discard').click(function() {
+    if($(':checked').size() > 0) {
+    	$("#order").submit();
+    } else {
+      alert('没有选择！');
+    }
+  });
+
+	</script>
+	<include file="Public:footer" />
+</body>
+
+</html>

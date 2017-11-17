@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>商城搜索</title>
+    <script src="__STYLE__/js/jquery.min.js"></script>    
+    <script src="__STYLE__/js/bootstrap.min.js"></script>  
+    <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__STYLE__/css/animate.min.css" rel="stylesheet">
+    <link href="__STYLE__/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<include file="Public:header" />
+<div class="container">
+    <div class="col-md-12 column margin4 padding1" style="min-height:800px;" align="center">
+        <volist name="list" id="searchitem" key="k" empty="$empty">
+        <!--volist 说明：name-传过来的结果集标识 result id-二级索引 key：索引名；未定义时变量为$i empty-result 结果集为空时的内容，可在Controller 中进行设置 -->
+            <div class="col-xs-3" id="search_{$searchitem.k}">
+                <div class="thumbnail" style="min-height:450px;background-color:rgba(51,51,51,1);">
+                    <a href="__ROOT__/index.php/home/index/jiadian?id={$searchitem.id}" target="_blank">
+                    <img src="__STYLE__/{$searchitem.img}" alt="{$searchitem.name}">
+                    </a>
+                    <div class="caption">
+                        <a href="__ROOT__/index.php/home/index/jiadian?id={$searchitem.id}" target="_blank" style="color:#fff;"><h3>{$searchitem.name}</h3></a>
+                        <p  style="color:#fff;">￥{$searchitem.price}</p>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>
+</div>
+
+<include file="Public:footer" />
+</body>
+</html>

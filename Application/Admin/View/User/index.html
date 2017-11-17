@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>vip调整</title>
+    <include file="./Application/Admin/Common/nav.html" />
+          <h2 class="sub-header">用户列表</h2>
+          <div class="table-responsive">
+            <table class="table  table-bordered">
+              <thead>
+                <tr>
+                  <th>编号</th>
+                  <th>用户名</th>
+                  <th>用户等级</th>
+                  <th>修改为</th>
+                  <th>提交</th>
+                </tr>
+              </thead>
+              <tbody>
+                <volist name="list" id="item" key="k" empty="$empty">
+                <tr>
+                  <td>{$k}</td>
+                  <td>{$item.username}</td>
+                  <td>{$item.rank}</td>
+                  <form action="__URL__/changerank?id={$item.id}" method="post">
+                  <td><select class="form-control" name="rank">
+                        <option value="普通会员">普通会员</option>
+                        <option value="vip会员">vip会员</option>
+                      </select></td>
+                  <td><button class="btn btn-inverse" type="submit">修改</button></td></form>
+                </tr>
+                </volist>
+              </tbody>
+            </table>
+          </div>
+        <div class="pages">
+            {$page}
+        </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

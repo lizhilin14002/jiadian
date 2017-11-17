@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>订单管理</title>
+  <include file="./Application/Admin/Common/nav.html" />
+        
+          <h2 class="sub-header">订单管理</h2>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>编号</th>
+                  <th>顾客名</th>
+                  <th>商品名</th>
+                  <th>份数</th>
+                  <th>总价</th>
+                  <th>添加时间</th>
+                  <th>收货地址</th>
+                  <th>状态</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <volist name="list" id="item" key="k" empty="$empty">
+                <tr>
+                  <td>{$k}</td>
+                  <td>{$item.username}</td>
+                  <td>{$item.name}</td>
+                  <td>{$item.number}</td>
+                  <td>{$item.zongjia}</td>
+                  <td>{$item.addtime}</td>
+                  <td>{$item.address}</td>
+                  <td>{$item.status}</td>
+                  <td><php>if($item["status"]=="未处理"){</php><a class="btn btn-inverse" href="__URL__/changestatus?id={$item.id}">变更状态</a></td><php>}</php>
+                </tr>
+                </volist>
+              </tbody>
+            </table>
+          </div>
+        <div class="pages">
+            {$page}
+        </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

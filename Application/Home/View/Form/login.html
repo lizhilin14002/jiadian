@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>商城登录</title>
+    <script src="__STYLE__/js/jquery.min.js"></script>    
+    <script src="__STYLE__/js/bootstrap.min.js"></script>  
+    <link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__STYLE__/css/animate.min.css" rel="stylesheet">
+    <link href="__STYLE__/css/style.css" rel="stylesheet">
+</head>
+<body>
+    
+<include file="Public:header" />
+<div class="container">
+	<div class="row clearfix background11"  style="min-height:600px;">
+		<div class="col-xs-offset-6 col-xs-6 column padding1" align="center">
+			<form class="form-horizontal margin4" method="post" action="__URL__/login_process" autocomplete="off">
+				<fieldset>
+
+				<!-- 表单名称 -->
+				<h3 class="color1"><b>登录</b></h3>
+                <php>
+	                if(!isset($_SESSION['user_id'])){
+	                    echo '<p class="error">'.$error_msg.'</p>';
+	                }
+                </php>
+				<!-- 文本框-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label color1" for="textinput">账号</label>  
+				  <div class="col-md-6">
+				  <input id="" name="user" type="text" placeholder="" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+
+				<!-- 文本框-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label color1" for="textinput">密码</label>  
+				  <div class="col-md-6">
+				  <input id="" name="password" type="password" placeholder="" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+				<!--验证码-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label color1" for="textinput">验证码</label>  
+				  <div class="col-md-3">
+							<input id="" name="verify" type="text" placeholder="验证码" class="form-control input-md" required="">
+				  </div>
+					<div class="col-md-2" id="captcha-container">
+									<img height="34px" alt="验证码" src="{:U('Home/Form/verify_c',array())}" title="点击刷新">
+				  </div>
+				</div>
+
+				<!-- 按钮 -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label color1" for="singlebutton"></label>
+				  <div class="col-md-6">
+				    <input type="submit" value="登录"  class="btn btn-block btn-lg btn-submit" style="background-color:#444;color:#ffffff;"></button>
+                    <h6 align="right"><a href="__ROOT__/index.php/home/form/register" style="color:#fff;">&nbsp;&nbsp;免费注册</a></h6>
+				  </div>
+				</div>
+
+				</fieldset>
+			</form>
+
+		</div>
+	</div>
+</div>
+<script>
+	var captcha_img = $('#captcha-container').find('img')  
+	var verifyimg = captcha_img.attr("src");  
+	captcha_img.attr('title', '点击刷新');  
+	captcha_img.click(function(){  
+			if( verifyimg.indexOf('?')>0){  
+					$(this).attr("src", verifyimg+'&random='+Math.random());  
+			}else{  
+					$(this).attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());  
+			}  
+	}); 
+</script>
+<include file="Public:footer" />
+</body>
+</html>

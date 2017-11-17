@@ -1,0 +1,220 @@
+/*
+ * css防止选中
+ */
+*{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  background:url(../image/adminbg.jpg) #ffffff no-repeat fixed;
+    min-height: 780px;
+}
+.padding1{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/*
+ * Global add-ons
+ */
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #333;
+}
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+.navbar-inverse .navbar-brand{
+  color: #fff;
+}
+.navbar-inverse .navbar-nav>li>a{
+      color: #fff;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: #fff;
+    background-color: #333;
+}
+.navbar-inverse {
+    background-color: transparent;
+}
+
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+ /* margin-bottom: 20px;*/
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #fff;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color:#333;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+  background-color: #ffffff;
+  min-height:100%;;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/*login*/
+.login-page, .register-page {
+    background: #444;
+}
+.login-box, .register-box {
+    width: 360px;
+    margin: 7% auto;
+}
+.login-logo, .register-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+    width:100%;
+}
+.login-box-body, .register-box-body {
+    background: #fff;
+    padding: 20px;
+    border-top: 0;
+    color: #666;
+}
+.no-padding{
+    padding-right: 0;
+    padding-left: 0;
+}
+/*表格样式*/
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  vertical-align: middle;
+}
+
+/*分页样式*/
+.pages a,
+.pages span {
+	display: inline-block;
+	padding: 2px 5px;
+	margin: 0 1px;
+	border: 1px solid #f0f0f0;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.pages a,
+.pages li {
+	display: inline-block;
+	list-style: none;
+	text-decoration: none;
+	color: #58A0D3;
+}
+
+.pages a.first,
+.pages a.prev,
+.pages a.next,
+.pages a.end {
+	margin: 0;
+}
+
+.pages a:hover {
+	border-color: #50A8E6;
+}
+
+.pages span.current {
+	background: #50A8E6;
+	color: #FFF;
+	font-weight: 700;
+	border-color: #50A8E6;
+}
+
+.roundbox {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+.roundbox h1 {
+  color:#fff;
+  line-height: 200px;
+}
+.roundbox_goods{
+  background-color: #333;
+}
+.roundbox_order{
+  background-color: #555;
+}
+.roundbox_comment{
+  background-color: #777;
+}

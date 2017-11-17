@@ -1,0 +1,72 @@
+<div class="container-fluid background9">
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-xs-12 column">
+            <?php
+                    if(!isset($_SESSION['username'])){
+                        echo'<h6><font style="float:right;"><a href="__ROOT__/index.php/home/form/login" style="color:#333;"><font>登录</font></a>&nbsp;|&nbsp;
+                        <a href="__ROOT__/index.php/home/form/register" style="color:#333;"><font>注册</font></a></font>
+                        <a href="__ROOT__/index.php"  style="color:#333;"><font class="glyphicon glyphicon-home">首页</font></a>
+                       </h6>';
+                        }
+                    else{
+                        $username= $_SESSION['username'];
+                        $userrank= $_SESSION['userrank'];
+                        echo  "<h6><font style='float:right;'>".$userrank."&nbsp;".$username."&nbsp;&nbsp;
+                        <a href='__ROOT__/index.php/home/form/logout'>退出</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href='__ROOT__/index.php/home/form/cart' class='glyphicon glyphicon-shopping-cart' title='购物车' style='color:#333;'>购物车</a></font>
+                        <a href='__ROOT__/index.php' style='color:#333;'><font class='glyphicon glyphicon-home'>首页</font></a>
+                        </h6>";
+                            }
+            ?>
+        </div>
+    </div>
+</div>
+</div>
+<div class="container-fluid">
+    <div class="container">
+		<div class="row clearfix">
+            <div class="col-xs-12 column padding1">
+                <!-- <img alt="" src="__STYLE__/image/top.png"  class="img-responsive"/> -->
+            </div>
+			<div class="col-xs-4 column">
+				<h3 class="color4">东软家电专卖</h3>
+			</div>
+            <div class="col-xs-offset-4 col-xs-4 column" align="right" style="padding-top:13px;">
+                <form role="search" class="form-horizontal" action="__ROOT__/index.php/home/form/searchresult" method="get" style="margin-bottom:0px;">
+                    <div class="input-group">
+                        <input id="query" name="name" type="text" placeholder="搜索 商品..." class="form-control" required />
+                        <span class="input-group-btn">
+                            <button class="btn button2" type="submit" style="top:0px;">搜索</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-xs-12 column acolor padding1 background10">
+            <div class="col-xs-1 column" align="center">
+                <a href="__ROOT__/index.php"><b>首页</b></a>
+            </div>
+            <div class="col-xs-1 column" align="center">
+                <a href="__ROOT__/index.php/home/form/searchresult?name="><b>全部</b></a>
+            </div>
+            <div class="col-xs-1 column" align="center">
+                <a href="__ROOT__/index.php/home/form/searchresult?name=冰箱"><b>冰箱</b></a>
+            </div>
+            <div class="col-xs-1 column" align="center">
+                <a href="__ROOT__/index.php/home/form/searchresult?name=电视"><b>电视</b></a>
+            </div>
+            <div class="col-xs-1 column" align="center">
+                <a href="__ROOT__/index.php/home/form/searchresult?name=空调"><b>空调</b></a>
+            </div>
+            <div class="col-xs-2 column" align="left">
+                <a href="__ROOT__/index.php/home/form/orderlist" title="我的订单"><b>我的订单</a>
+            </div>
+        </div>       
+    </div>
+</div>    
+

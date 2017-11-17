@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>评论管理</title>
+      <include file="./Application/Admin/Common/nav.html" />
+      <!--   <p class="pull-right" style="margin-top: 20px;"><button class="btn btn-inverse" type="button" id="deleteA">批量删除</button></p> -->
+          <h2 class="sub-header">评论管理</h2>
+          <div class="table-responsive">
+            <table class="table  table-bordered">
+              <thead>
+                <tr>
+                <!--   <th><input class="all" type="checkbox"/></th> -->
+                  <th>编号</th>
+                  <th>顾客名</th>
+                  <th>商品ID</th>
+                  <th>评论内容</th>
+                  <th>添加时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <form action="__ROOT__/index.php/admin/Comment/delete_all" method="get" id="list">
+                <volist name="list" id="item" key="k" empty="$empty">
+                <tr>
+                  <!-- <td><input name='id[]' type='checkbox' value='{$item.id}' class="noborder"></td> -->
+                  <td>{$k}</td>
+                  <td>{$item.username}</td>
+                  <td>{$item.jiadianid}</td>
+                  <td>{$item.comment}</td>
+                  <td>{$item.addtime}</td>
+                  <td><a class="btn btn-inverse" href="__URL__/delete?id={$item.id}">删除</a></td>
+                </tr>
+                </volist>
+                </form>
+              </tbody>
+            </table>
+          </div>
+          <div class="pages">
+              {$page}
+          </div>
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript">
+    $('.all').click(function() {
+      if($(this).is(':checked')) {
+        $(':checkbox').attr('checked', 'checked');
+      } else {
+        $(':checkbox').removeAttr('checked');
+      }
+    });
+    $('#deleteA').click(function() {
+    if($(':checked').size() > 0) {
+      $("#list").submit();
+    } else {
+      alert('没有选择！');
+    }
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>商品管理:添加</title>
+    <include file="./Application/Admin/Common/nav.html" />
+          <p class="pull-right" style="margin-top: 20px;"><a class="btn btn-inverse" href="__ROOT__/index.php/admin/jiadian">返回</a></p>
+          <h2 class="sub-header">商品管理:添加商品</h2>
+          <form class="form-horizontal" action="__ROOT__/index.php/admin/jiadian/add_process" method="post" enctype="multipart/form-data" autocomplete="off">
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">商品名</label>  
+            <div class="col-md-4">
+            <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required />
+              
+            </div>
+          </div>
+
+          <!-- 文本域-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="description">描述</label>  
+            <div class="col-md-4">                     
+              <textarea class="form-control" id="description" name="description" rows="10" placeholder="在此输入内容" required></textarea>
+            </div>
+          </div>
+
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="price">价格</label>  
+            <div class="col-md-4">
+            <div class="input-group">
+      <span class="input-group-addon">￥</span>
+            <input id="price" name="price" type="text" placeholder="" class="form-control input-md" required />
+            </div>
+              
+            </div>
+          </div>
+
+          <!-- 文件按钮 --> 
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="img">图片</label>
+            <div class="col-md-4">
+              <span class="help-block">支持常见图片格式(.jpg,.png,.jpeg)，最大上传：1M</span>
+              <input id="img" name="img" class="input-file" type="file" accept="image/*" required />
+            </div>
+          </div>
+
+          <!-- 双按钮 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="">操作</label>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-inverse">提交</button>
+<!--               <button type="reset" class="btn btn-default">清空</button> -->
+            </div>
+          </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>

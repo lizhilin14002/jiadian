@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>公告管理:修改</title>
+    <include file="./Application/Admin/Common/nav.html" />
+          <p class="pull-right" style="margin-top: 20px;"><a class="btn btn-inverse" href="__ROOT__/index.php/admin/News">返回</a></p>
+          <h2 class="sub-header">公告管理:修改公告<small>#{$list.id}:{$list.title}</small></h2>
+          <form class="form-horizontal" action="__ROOT__/index.php/admin/News/change_process" method="post" autocomplete="off">
+          <!-- 文本框-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="title">公告标题</label>  
+            <div class="col-md-4">
+            <input id="id" name="id" type="hidden"  value="{$list.id}" class="form-control input-md" />
+
+            <input id="title" name="title" type="text" value="{$list.title}" class="form-control input-md" required />
+              
+            </div>
+          </div>
+
+          <!-- 文本域 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="content">内容</label>
+            <div class="col-md-4">                     
+              <textarea class="form-control" id="content" name="content" rows="10" placeholder="在此输入内容" required>{$list.content}</textarea>
+            </div>
+          </div>
+
+          <!-- 双按钮 -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="">操作</label>
+            <div class="col-md-8">
+              <button type="submit" class="btn btn-inverse">提交</button>
+              <!-- <button type="reset" class="btn btn-default">还原</button> -->
+            </div>
+          </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>

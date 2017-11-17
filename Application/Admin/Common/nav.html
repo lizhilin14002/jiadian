@@ -1,0 +1,57 @@
+<script src="__STYLE__/js/jquery.min.js"></script>
+<script src="__STYLE__/js/bootstrap.min.js"></script>
+<link href="__STYLE__/css/bootstrap.min.css" rel="stylesheet">
+<link href="__STYLE__/css/admin.css" rel="stylesheet">
+<script>
+    $(document).ready(function () {
+    //高亮当前选中的导航
+    var myNav = $(".nav-sidebar > li > a");
+    for (var i = 0; i < myNav.length; i++) {
+        var links = myNav.eq(i).attr("href");
+        var myURL = document.URL;
+        var durl=/http:\/\/([^\/]+)\//i;
+        domain = myURL.match(durl);
+        console.log(myURL.match(durl));
+        var result = myURL.replace("http://"+domain[1],"");
+        if (links == result) {
+            myNav.eq(i).parents("li").addClass("active");
+        }
+    }
+});
+</script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid" style="background-color:rgba(51,51,51,0.8);">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+            <span class="sr-only">东软家电专卖后台管理系统</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="#">东软家电专卖后台管理系统</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="top:0px;"><php>echo I('session.usernameA');</php>管理员</a></li>
+                    <li><a href="__ROOT__/index.php/admin/form/logout">退出</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-1 padding1" style="background-color:rgba(51,51,51,0.8);padding-top:0px;min-height:100%;" >
+                <ul class="nav nav-sidebar">
+                    <li><a href="__ROOT__/index.php/admin/index"> 首页</a></li>
+                    <li><a href="__ROOT__/index.php/admin/jiadian"> 商品管理</a></li>
+                    <li><a href="__ROOT__/index.php/admin/Order"> 订单管理</a></li>
+                    <li><a href="__ROOT__/index.php/admin/Comment"> 评论管理</a></li>
+                    <li><a href="__ROOT__/index.php/admin/User"> vip调整</a></li>
+                    <li><a href="__ROOT__/index.php/admin/News"> 公告列表</a></li>                  
+                </ul>
+            </div>
+            <div class="col-xs-11 main">
